@@ -44,6 +44,8 @@ sudo pip3 install pybind11[global]
 sudo pip3 install git+https://github.com/asd417/deep-rts.git
 ```
 
+Please edit the line `set(pybind11_DIR "~/usr/local/lib/python3.10/dist-packages/pybind11/share/cmake/pybind11")` in CMakeList.txt as needed
+
 ### Method 2 (Clone & Build)
 ```
 sudo pip3 install pybind11[global]
