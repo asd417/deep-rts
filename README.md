@@ -52,6 +52,12 @@ sudo pip3 install git+https://github.com/asd417/deep-rts.git
 ### Method 2 (Clone & Build)
 ```
 sudo pip3 install pybind11[global]
+```
+
+Please edit the line `set(pybind11_DIR "~/usr/local/lib/python3.10/dist-packages/pybind11/share/cmake/pybind11")` in CMakeList.txt as necessary. This is to make sure cmake finds where the pybind11 is installed.
+
+
+```
 git clone https://github.com/asd417/deep-rts.git
 cd deep-rts
 git submodule sync
