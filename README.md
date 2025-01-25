@@ -40,7 +40,7 @@ month={Aug},}
 
 ### Method 1 (From Git Repo)
 ```
-sudo pip3 install git+https://github.com/asd417/DeepRTS.git
+sudo pip3 install git+https://github.com/asd417/deep-rts.git
 ```
 
 ### Method 2 (Clone & Build)
