@@ -215,6 +215,7 @@ endif ()
 
 
 if(PYTHON_BUILD)
+        message(STATUS "PYTHON_BUILD TRUE, building from python")
         pybind11_add_module(libdeeprts ${DEEPRTS_PYBIND_SOURCES} ${DEEPRTS_SOURCE_FILES})
         target_link_libraries(libdeeprts
                 INTERFACE

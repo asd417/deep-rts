@@ -1,11 +1,11 @@
 try:
-    from DeepRTS import Engine
+    from DeepRTS import libdeeprts
 except ImportError:
-    import Engine
+    import libdeeprts
 
 try:
-    from DeepRTS.Engine import Map, UnitManager, Constants, Player
-    from DeepRTS.Engine import Constants
+    from DeepRTS.libdeeprts import Map, UnitManager, Constants, Player
+    from DeepRTS.libdeeprts import Constants
 except ImportError:
-    from Engine import Map, UnitManager, Constants, Player, Constants
+    from libdeeprts import Map, UnitManager, Constants, Player, Constants
 

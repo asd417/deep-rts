@@ -1,5 +1,7 @@
 <img src ="./docs/logo.png" width="50%" height="50%"/>
 
+## TODO The build system does not work. specifically, the package can not import libdeeprts properly. Until this is fixed, this project can not be worked on
+
 ## Description [![Build Status](https://travis-ci.org/cair/deep-rts.svg?branch=master)](https://travis-ci.org/cair/deep-rts) [![Documentation](https://img.shields.io/badge/docs-readme-blue.svg)](https://cair.github.io/deep-rts) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/cair/DeepRTS/c%2B%2B/LICENCE.MIT)
 DeepRTS is a high-performance Real-TIme strategy game for Reinforcement Learning research. 
 It is written in C++ for performance, 
