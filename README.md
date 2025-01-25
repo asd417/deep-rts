@@ -41,10 +41,13 @@ month={Aug},}
 ### Method 1 (From Git Repo)
 ```
 sudo pip3 install pybind11[global]
-sudo pip3 install git+https://github.com/asd417/deep-rts.git
 ```
 
-Please edit the line `set(pybind11_DIR "~/usr/local/lib/python3.10/dist-packages/pybind11/share/cmake/pybind11")` in CMakeList.txt as needed
+Please edit the line `set(pybind11_DIR "~/usr/local/lib/python3.10/dist-packages/pybind11/share/cmake/pybind11")` in CMakeList.txt as necessary. This is to make sure cmake finds where the pybind11 is installed.
+
+```
+sudo pip3 install git+https://github.com/asd417/deep-rts.git
+```
 
 ### Method 2 (Clone & Build)
 ```
