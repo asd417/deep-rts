@@ -402,6 +402,31 @@ namespace JPS {
                     : _data(0), used(0), cap(0), _user(user)
             {}
             ~PodVec() { dealloc(); }
+            // Move constructor
+            PodVec(PodVec&& other) noexcept
+                : _data(other._data), used(other.used), cap(other.cap), _user(other._user)
+            {
+                other._data = nullptr;
+                other.used = 0;
+                other.cap = 0;
+            }
+            // Move assignment operator
+            PodVec& operator=(PodVec&& other) noexcept
+            {
+                if (this != &other) {
+                    dealloc(); // Free current resources
+
+                    // Steal resources from `other`
+                    _data = other._data;
+                    used = other.used;
+                    cap = other.cap;
+
+                    other._data = nullptr;
+                    other.used = 0;
+                    other.cap = 0;
+                }
+                return *this;
+            }
             inline void clear()
             {
                 used = 0;
@@ -466,15 +491,25 @@ namespace JPS {
             inline const_iterator cend() const { return data() + size(); }
 
         private:
-            void *_grow(SizeT newcap)
+            void* _grow(SizeT newcap)
             {
-                void *p = JPS_realloc(_data, newcap * sizeof(T), cap * sizeof(T), _user);
-                if(p)
-                {
-                    _data = (T*)p;
-                    cap = newcap;
+                // Allocate new memory for the new capacity
+                T* new_data = static_cast<T*>(operator new(newcap * sizeof(T)));
+
+                // Move-construct objects into the new memory
+                for (size_t i = 0; i < used; ++i) {
+                    new (new_data + i) T(std::move(_data[i]));
+                    _data[i].~T(); // Destroy the old object
                 }
-                return p;
+
+                // Free old memory
+                operator delete(_data);
+
+                // Update internal pointer and capacity
+                _data = new_data;
+                cap = newcap;
+
+                return _data;
             }
             void * _grow()
             {
@@ -488,9 +523,9 @@ namespace JPS {
             void * const _user;
 
         private:
-            // forbid ops
-            PodVec<T>& operator=(const PodVec<T>&);
-            PodVec(const PodVec<T>&);
+            // Copy constructor and copy assignment operator are explicitly forbidden
+            PodVec<T>& operator=(const PodVec<T>&) = delete;
+            PodVec(const PodVec<T>&) = delete;
         };
 
         template<typename T>

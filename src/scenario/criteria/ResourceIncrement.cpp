@@ -26,7 +26,9 @@ bool DeepRTS::Criteria::ResourceIncrement::evaluate(const Player &player) {
             state = player.sGatheredLumber > lastValue;
             lastValue = player.sGatheredLumber;
             break;
-    }
+        case Constants::Food:
+            break;
+        }
     isValid = state;
     return isValid;
 }

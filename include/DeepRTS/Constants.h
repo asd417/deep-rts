@@ -1,4 +1,6 @@
+#ifdef __clang__
 #pragma clang diagnostic push
+#endif
 //
 // Created by Per-Arne on 24.02.2017.
 //
@@ -152,4 +154,6 @@ namespace DeepRTS {
 
     }
 }
+#ifdef __clang__
 #pragma clang diagnostic pop
+#endif
