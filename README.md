@@ -40,11 +40,13 @@ month={Aug},}
 
 ### Method 1 (From Git Repo)
 ```
+sudo pip3 install pybind11[global]
 sudo pip3 install git+https://github.com/asd417/deep-rts.git
 ```
 
 ### Method 2 (Clone & Build)
 ```
+sudo pip3 install pybind11[global]
 git clone https://github.com/asd417/deep-rts.git
 cd deep-rts
 git submodule sync
