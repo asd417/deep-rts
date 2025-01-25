@@ -43,7 +43,7 @@ month={Aug},}
 sudo pip3 install pybind11[global]
 ```
 
-Please edit the line `set(pybind11_DIR "~/usr/local/lib/python3.10/dist-packages/pybind11/share/cmake/pybind11")` in CMakeList.txt as necessary. This is to make sure cmake finds where the pybind11 is installed.
+Please edit the line `set(pybind11_DIR "~/usr/local/lib/python3.10/dist-packages/pybind11/share/cmake/pybind11")` in CMakeList.txt as necessary. This is to make sure cmake finds where the pybind11 is installed. Also make sure you have ssh access to git.
 
 ```
 sudo pip3 install git+https://github.com/asd417/deep-rts.git
